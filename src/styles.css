@@ -1,0 +1,123 @@
+.container {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  font-family: "Cookie", cursive;
+}
+
+h2,
+h5,
+.display-2,
+.card,
+.forecast-weather {
+  text-align: center;
+}
+
+.form-control,
+.btn {
+  font-size: 25px;
+}
+
+h5,
+.sunrise-time,
+.sunset-time {
+  font-size: 35px;
+}
+
+.sunrise-time,
+.sunset-time {
+  color: #4d4d4d;
+}
+
+.current-icon,
+.change-city {
+  padding: 20px;
+}
+
+.btn,
+.icon-temp {
+  box-shadow: 1px 1px 5px rgb(167, 167, 167);
+}
+
+h2 {
+  padding-bottom: 20px;
+  font-size: 50px;
+}
+
+footer {
+  text-align: right;
+  font-size: 20px;
+}
+
+.weather-info {
+  border: 1px solid black;
+  padding: 20px 30px 50px 50px;
+  box-shadow: 3px 5px 15px grey;
+  background-image: linear-gradient(-225deg, #e3fdf5 0%, #ffe6fa 100%);
+  border-radius: 12px;
+}
+
+.change-city {
+  margin-bottom: 30px;
+}
+
+.btn-primary {
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.form-group {
+  box-shadow: 2px 2px 5px rgb(167, 167, 167);
+}
+
+.card {
+  padding: 25px 25px 0px 25px;
+  box-shadow: 2px 2px 5px rgb(167, 167, 167);
+}
+
+.card-title {
+  font-size: 55px;
+}
+
+.current-day {
+  font-size: 45px;
+}
+
+.city {
+  font-weight: bold;
+  color: darkred;
+  font-size: 65px;
+}
+
+.card-text {
+  font-size: 45px;
+}
+
+.current-weather {
+  color: #2372af;
+}
+
+.convert {
+  font-size: 30px;
+  margin-top: -25px;
+}
+
+.weekday-date {
+  padding: 40px 0px 40px 40px;
+}
+
+.icon-temp {
+  border: 1px solid black;
+  border-radius: 12px;
+}
+
+.forecast-icon {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 70px;
+  display: block;
+  margin: 0 auto;
+}
+
+.forecast-weather {
+  font-size: 30px;
+}

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Plus Project - Weather App</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="src/styles.css" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cookie&display=swap"
+      rel="stylesheet"
+    />
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </head>
+
+  <body>
+    <div class="container container-fluid">
+      <div class="weather-info">
+        <div class="change-city">
+          <h1 class="display-2">
+            How's the weather in...
+          </h1>
+          <br />
+          <button
+            type="submit"
+            class="btn btn-primary btn-block"
+            id="current-location-button"
+          >
+            Current Location
+          </button>
+          <hr />
+          <form id="search-city-form">
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Search"
+                id="city-input"
+              />
+            </div>
+            <button type="submit" class="btn btn-info btn-block">
+              Change city
+            </button>
+          </form>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="card bg-light mb-3 border-dark">
+              <h1 class="card-title">
+                Currently in <br />
+                <span class="city" id="current-city"></span>
+                <br />
+                <span class="current-day" id="time">time</span>,
+                <span class="current-day" id="current-date"
+                  >Sat. 6/20/2020</span
+                >
+              </h1>
+              <div class="current-icon">
+                <a href="https://placeholder.com"
+                  ><img
+                    src="https://via.placeholder.com/275.png?text=Current+Weather+Icon"
+                /></a>
+                <!-- <img
+                  src="images/partly-cloudy.svg"
+                  alt="cloudy"
+                  width="275px"
+                /> -->
+              </div>
+              <div class="card-body">
+                <p class="card-text">
+                  <span class="current-weather" id="weather-description"></span>
+                  <span class="current-weather">,</span>
+                  <span class="current-weather" id="current-temp"></span>
+                  <span class="current-weather" id="farenheit">
+                    <a href="#">
+                      °F
+                    </a>
+                  </span>
+                  |
+                  <span class="current-weather" id="celsius">
+                    <a href="#">
+                      °C
+                    </a>
+                  </span>
+                  <br />
+                  Humidity: <span class="current-weather" id="humidity"></span
+                  ><span class="current-weather">%</span>
+                  <br />
+                  Wind: <span class="current-weather" id="wind"></span
+                  ><span class="current-weather"> mph</span>
+                </p>
+                <div class="row">
+                  <div class="col-md-6 sunrise-time">
+                    <img
+                      src="images/sunrise.svg"
+                      alt="sunset"
+                      width="100px"
+                      class="sunrise-icon"
+                    />
+                    <p class="sunrise-time">
+                      Sunrise: 5:23am
+                    </p>
+                  </div>
+                  <div class="col-md-6 sunset-time">
+                    <img
+                      src="images/sunset.svg"
+                      alt="sunset"
+                      width="100px"
+                      class="sunset-icon"
+                    />
+                    <p class="sunset-time">
+                      Sunset: 8:47pm
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <h2>
+              5-day Forecast
+            </h2>
+            <div class="row">
+              <div class="col-md-6">
+                <h5 class="weekday-date">
+                  Sunday <br />
+                  6/21/2020
+                </h5>
+
+                <h5 class="weekday-date">
+                  Monday <br />
+                  6/22/2020
+                </h5>
+
+                <h5 class="weekday-date">
+                  Tuesday <br />
+                  6/23/2020
+                </h5>
+
+                <h5 class="weekday-date">
+                  Wednesday <br />
+                  6/24/2020
+                </h5>
+
+                <h5 class="weekday-date">
+                  Thursday <br />
+                  6/25/2020
+                </h5>
+              </div>
+              <div class="col-md-6">
+                <div class="day1-icon icon-temp">
+                  <img
+                    src="images/sunny.svg"
+                    alt="sunny"
+                    class="forecast-icon"
+                  />
+                  <p class="forecast-weather">
+                    Sunny, 75°F
+                  </p>
+                </div>
+                <br />
+                <div class="day2-icon icon-temp">
+                  <img
+                    src="images/sunny.svg"
+                    alt="sunny"
+                    class="forecast-icon"
+                  />
+                  <p class="forecast-weather">
+                    Sunny, 84°F
+                  </p>
+                </div>
+                <br />
+                <div class="day3-icon icon-temp">
+                  <img
+                    src="images/partly-cloudy.svg"
+                    alt="cloudy"
+                    class="forecast-icon"
+                  />
+                  <p class="forecast-weather">
+                    Partly cloudy, 84°F
+                  </p>
+                </div>
+                <br />
+                <div class="day4-icon icon-temp">
+                  <img
+                    src="images/sunny.svg"
+                    alt="sunny"
+                    class="forecast-icon"
+                  />
+                  <p class="forecast-weather">
+                    Sunny, 82°F
+                  </p>
+                </div>
+                <br />
+                <div class="day5-icon icon-temp">
+                  <img
+                    src="images/partly-cloudy.svg"
+                    alt="cloudy"
+                    class="forecast-icon"
+                  />
+                  <p class="forecast-weather">
+                    Partly cloudy, 82°F
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer>
+        This page was developed by Micah Kelly
+      </footer>
+    </div>
+    <script src="src/index.js"></script>
+  </body>
+</html>
