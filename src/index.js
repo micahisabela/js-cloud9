@@ -26,6 +26,21 @@ currentTime.innerHTML = getTime(now);
 let currentDate = document.querySelector("#current-date");
 currentDate.innerHTML = getDate(now);
 
+// function formatDate(timestamp) {
+//   let date = new Date(timestamp);
+
+//   let daysOfWeek = ["Sun.", "Mon.", "Tue.", "Wed.", "Thu.", "Fri.", "Sat."];
+//   let currentWeekday = daysOfWeek[date.getDay()];
+
+//   let time = timestamp.toLocaleString("en-US", {
+//     hour: "numeric",
+//     hour12: true,
+//     minute: "numeric",
+//   });
+
+//   return `${time}, ${currentWeekday}`;
+// }
+
 // search engine
 function search(city) {
   let units = "imperial";
@@ -48,6 +63,7 @@ function getCity(event) {
 }
 
 function showCity(response) {
+  console.log(response);
   document.querySelector("#current-city").innerHTML = response.data.name;
 
   document.querySelector("#current-temp").innerHTML = Math.round(
@@ -62,6 +78,9 @@ function showCity(response) {
   document.querySelector("#wind").innerHTML = Math.round(
     response.data.wind.speed
   );
+
+  // document.querySelector("#current-date").innerHTML = formatDate(
+  // response.data.dt * 1000);
 
   // unit conversion
   // let farenheitTemp = Math.round(response.data.main.temp);
