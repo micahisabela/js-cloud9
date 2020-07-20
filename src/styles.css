@@ -100,6 +100,11 @@ p::first-letter {
   text-transform: capitalize;
 }
 
+.current-icon {
+  max-width: 275px;
+  text-align: center;
+}
+
 .convert {
   font-size: 30px;
   margin-top: -25px;

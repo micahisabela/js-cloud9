@@ -86,6 +86,13 @@ function showCity(response) {
   // let farenheitTemp = Math.round(response.data.main.temp);
   // let celsiusTemp = Math.round(((farenheitTemp - 32) * 5) / 9);
   // let convertToCelsius = document.querySelector("#celsius");
+
+  let iconElement = document.querySelector("#weather-icon");
+  iconElement.setAttribute(
+    "src",
+    `images/${response.data.weather[0].icon}.svg`
+  );
+  iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
 function getCurrentLocation(event) {
