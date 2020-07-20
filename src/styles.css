@@ -90,11 +90,14 @@ footer {
 
 .card-text {
   font-size: 45px;
-  text-transform: capitalize;
 }
 
 .current-weather {
   color: #2372af;
+}
+
+p::first-letter {
+  text-transform: capitalize;
 }
 
 .convert {
