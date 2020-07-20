@@ -91,4 +91,4 @@ searchCityForm.addEventListener("submit", getCity);
 let currentLocationButton = document.querySelector("#current-location-button");
 currentLocationButton.addEventListener("click", getCurrentLocation);
 
-search("Italy");
+search("North Pole");
