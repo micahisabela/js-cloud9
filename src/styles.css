@@ -90,6 +90,7 @@ footer {
 
 .card-text {
   font-size: 45px;
+  text-transform: capitalize;
 }
 
 .current-weather {
