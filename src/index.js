@@ -39,7 +39,7 @@ currentDate.innerHTML = getDate(now);
 //   });
 
 //   return `${time}, ${currentWeekday}`;
-// }
+// } // commenting this out because openweatherapi is not rendering the time correctly
 
 // search engine
 function search(city) {
@@ -80,7 +80,8 @@ function showCity(response) {
   );
 
   // document.querySelector("#current-date").innerHTML = formatDate(
-  // response.data.dt * 1000);
+  //   response.data.dt * 1000
+  // ); // commenting this out for now because openweatherapi is not rendering the time correctly
 
   // unit conversion
   // let farenheitTemp = Math.round(response.data.main.temp);
