@@ -34,14 +34,6 @@ function getDate(date) {
 // } // commenting this out because openweatherapi is not rendering the time correctly
 
 // search engine
-function search(city) {
-  let units = "imperial";
-  let apiKey = "ae34e38ff098831b63cd4c4969e133cd";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${units}&appid=${apiKey}`;
-
-  axios.get(apiUrl).then(showCity);
-}
-
 function getCity(event) {
   event.preventDefault();
 
@@ -52,6 +44,14 @@ function getCity(event) {
   } else {
     search(city);
   }
+}
+
+function search(city) {
+  let units = "imperial";
+  let apiKey = "ae34e38ff098831b63cd4c4969e133cd";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${units}&appid=${apiKey}`;
+
+  axios.get(apiUrl).then(showCity);
 }
 
 function showCity(response) {
