@@ -105,9 +105,13 @@ p::first-letter {
   text-align: center;
 }
 
-.convert {
-  font-size: 30px;
-  margin-top: -25px;
+.card-text .active {
+  color: black;
+  cursor: default;
+}
+
+.card-text .active:hover {
+  text-decoration: none;
 }
 
 .weekday-date {

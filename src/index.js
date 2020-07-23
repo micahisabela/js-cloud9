@@ -18,14 +18,6 @@ function getDate(date) {
   return `${currentWeekday} ${currentMonth}/${currentDayNumber}/${currentYear}`;
 }
 
-let now = new Date();
-
-let currentTime = document.querySelector("#time");
-currentTime.innerHTML = getTime(now);
-
-let currentDate = document.querySelector("#current-date");
-currentDate.innerHTML = getDate(now);
-
 // function formatDate(timestamp) {
 //   let date = new Date(timestamp);
 
@@ -70,6 +62,8 @@ function showCity(response) {
     response.data.main.temp
   );
 
+  currentTemperature = response.data.main.temp;
+
   document.querySelector("#weather-description").innerHTML =
     response.data.weather[0].description;
 
@@ -83,11 +77,6 @@ function showCity(response) {
   //   response.data.dt * 1000
   // ); // commenting this out for now because openweatherapi is not rendering the time correctly
 
-  // unit conversion
-  // let farenheitTemp = Math.round(response.data.main.temp);
-  // let celsiusTemp = Math.round(((farenheitTemp - 32) * 5) / 9);
-  // let convertToCelsius = document.querySelector("#celsius");
-
   let iconElement = document.querySelector("#weather-icon");
   iconElement.setAttribute(
     "src",
@@ -96,6 +85,7 @@ function showCity(response) {
   iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
+// use the Current Location button:
 function getCurrentLocation(event) {
   navigator.geolocation.getCurrentPosition(getCoordinates);
 }
@@ -112,10 +102,44 @@ function getCoordinates(position) {
   axios.get(apiUrl).then(showCity);
 }
 
+// temperature conversion feature:
+function convertToCelsius(event) {
+  event.preventDefault();
+
+  let celsiusTemperature = document.querySelector("#current-temp");
+  celsiusTemperature.innerHTML = Math.round(currentTemperature - (32 * 5) / 9);
+  celsiusLink.classList.add("active");
+  farenheitLink.classList.remove("active");
+}
+
+function convertToFarenheit(event) {
+  event.preventDefault();
+
+  let farenheitTemperature = document.querySelector("#current-temp");
+  farenheitTemperature.innerHTML = Math.round(currentTemperature);
+  farenheitLink.classList.add("active");
+  celsiusLink.classList.remove("active");
+}
+
 let searchCityForm = document.querySelector("#search-city-form");
 searchCityForm.addEventListener("submit", getCity);
 
 let currentLocationButton = document.querySelector("#current-location-button");
 currentLocationButton.addEventListener("click", getCurrentLocation);
+
+let now = new Date();
+
+let currentTime = document.querySelector("#time");
+currentTime.innerHTML = getTime(now);
+
+let currentDate = document.querySelector("#current-date");
+currentDate.innerHTML = getDate(now);
+
+let currentTemperature = null;
+let celsiusLink = document.querySelector("#celsius");
+celsiusLink.addEventListener("click", convertToCelsius);
+
+let farenheitLink = document.querySelector("#farenheit");
+farenheitLink.addEventListener("click", convertToFarenheit);
 
 search("North Pole");
