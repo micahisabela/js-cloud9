@@ -54,7 +54,7 @@
         <div class="row">
           <div class="col-md-6">
             <div class="card bg-light mb-3 border-dark">
-              <p>
+              <p class="last-updated-time">
                 <span class="current-day">Last updated:</span>
                 <span class="current-day" id="time">time</span>
                 <span class="current-day" id="current-date"
@@ -93,27 +93,28 @@
                   Wind: <span class="current-weather" id="wind"></span
                   ><span class="current-weather"> mph</span>
                 </p>
-                <div class="row">
+                <br />
+                <div class="row rise-set">
                   <div class="col-md-6 sunrise-time">
                     <img
                       src="images/sunrise.svg"
                       alt="sunset"
-                      width="100px"
+                      width="150px"
                       class="sunrise-icon"
                     />
                     <p class="sunrise-time">
-                      Sunrise: 5:23am
+                      Sunrise: <span id="sunrise-time">5:23am</span>
                     </p>
                   </div>
                   <div class="col-md-6 sunset-time">
                     <img
                       src="images/sunset.svg"
                       alt="sunset"
-                      width="100px"
+                      width="150px"
                       class="sunset-icon"
                     />
                     <p class="sunset-time">
-                      Sunset: 8:47pm
+                      Sunset: <span id="sunset-time">8:47pm</span>
                     </p>
                   </div>
                 </div>
@@ -122,91 +123,14 @@
           </div>
           <div class="col-md-6">
             <h2>
-              5-day Forecast
+              3-hour Forecast (local time)
             </h2>
-            <div class="row">
-              <div class="col-md-6">
-                <h5 class="weekday-date">
-                  Sunday <br />
-                  6/21/2020
-                </h5>
-
-                <h5 class="weekday-date">
-                  Monday <br />
-                  6/22/2020
-                </h5>
-
-                <h5 class="weekday-date">
-                  Tuesday <br />
-                  6/23/2020
-                </h5>
-
-                <h5 class="weekday-date">
-                  Wednesday <br />
-                  6/24/2020
-                </h5>
-
-                <h5 class="weekday-date">
-                  Thursday <br />
-                  6/25/2020
-                </h5>
-              </div>
-              <div class="col-md-6">
-                <div class="day1-icon icon-temp">
-                  <img
-                    src="images/sunny.svg"
-                    alt="sunny"
-                    class="forecast-icon"
-                  />
-                  <p class="forecast-weather">
-                    Sunny, 75°F
-                  </p>
-                </div>
-                <br />
-                <div class="day2-icon icon-temp">
-                  <img
-                    src="images/sunny.svg"
-                    alt="sunny"
-                    class="forecast-icon"
-                  />
-                  <p class="forecast-weather">
-                    Sunny, 84°F
-                  </p>
-                </div>
-                <br />
-                <div class="day3-icon icon-temp">
-                  <img
-                    src="images/partly-cloudy.svg"
-                    alt="cloudy"
-                    class="forecast-icon"
-                  />
-                  <p class="forecast-weather">
-                    Partly cloudy, 84°F
-                  </p>
-                </div>
-                <br />
-                <div class="day4-icon icon-temp">
-                  <img
-                    src="images/sunny.svg"
-                    alt="sunny"
-                    class="forecast-icon"
-                  />
-                  <p class="forecast-weather">
-                    Sunny, 82°F
-                  </p>
-                </div>
-                <br />
-                <div class="day5-icon icon-temp">
-                  <img
-                    src="images/partly-cloudy.svg"
-                    alt="cloudy"
-                    class="forecast-icon"
-                  />
-                  <p class="forecast-weather">
-                    Partly cloudy, 82°F
-                  </p>
-                </div>
-              </div>
+            <div class="icon-temp" id="forecast">
+              <p class="forecast-weather">
+                4:30am
+                <img src="images/01d.svg" alt="sunny" class="forecast-icon" />
+                Sunny, 75°F | <em>24°C</em>
+              </p>
             </div>
           </div>
         </div>

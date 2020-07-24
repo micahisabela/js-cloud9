@@ -52,10 +52,40 @@ function search(city) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${units}&appid=${apiKey}`;
 
   axios.get(apiUrl).then(showCity);
+
+  // start point for displaying the forecast based on a search input:
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=${units}&appid=${apiKey}`;
+  axios.get(apiUrl).then(showForecast);
+}
+
+function showForecast(response) {
+  let forecastElement = document.querySelector("#forecast");
+  forecastElement.innerHTML = null;
+  let forecast = null;
+
+  for (let index = 0; index < 5; index++) {
+    forecast = response.data.list[index];
+
+    let forecastTime = getTime(new Date(forecast.dt * 1000));
+    let farenheitTemperature = Math.round(forecast.main.temp_max);
+    let celsiusTemperature = Math.round(farenheitTemperature - (32 * 5) / 9);
+    let iconCode = forecast.weather[0].icon;
+    let forecastDescription = forecast.weather[0].description;
+
+    forecastElement.innerHTML += `<div class="icon-temp" id="forecast">
+              <p class="forecast-weather">
+                ${forecastTime}
+                <img src="images/${iconCode}.svg" class="forecast-icon" />
+                ${forecastDescription}, ${farenheitTemperature}°F | <em>${celsiusTemperature}°C</em>
+              </p>
+            </div>
+            <hr />`;
+  }
 }
 
 function showCity(response) {
-  console.log(response);
+  console.log(response.data);
+
   document.querySelector("#current-city").innerHTML = response.data.name;
 
   document.querySelector("#current-temp").innerHTML = Math.round(
@@ -100,6 +130,10 @@ function getCoordinates(position) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitudeCoordinate}&lon=${longitudeCoordinate}&units=${units}&appid=${apiKey}`;
 
   axios.get(apiUrl).then(showCity);
+
+  // start point for displaying the forecast based on a "get current location" input
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitudeCoordinate}&lon=${longitudeCoordinate}&units=${units}&appid=${apiKey}`;
+  axios.get(apiUrl).then(showForecast);
 }
 
 // temperature conversion feature:

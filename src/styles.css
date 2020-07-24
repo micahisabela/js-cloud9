@@ -33,14 +33,17 @@ h5,
   padding: 20px;
 }
 
-.btn,
-.icon-temp {
+.last-updated-time,
+.forecast-weather {
+  margin-bottom: 0;
+}
+
+.btn {
   box-shadow: 1px 1px 5px rgb(167, 167, 167);
 }
 
 h2 {
-  padding-bottom: 20px;
-  font-size: 50px;
+  font-size: 40px;
 }
 
 footer {
@@ -114,18 +117,15 @@ p::first-letter {
   text-decoration: none;
 }
 
-.weekday-date {
-  padding: 40px;
-}
-
 .icon-temp {
-  border: 1px solid black;
-  border-radius: 12px;
+  max-width: 350px;
+  display: block;
+  margin: 0 auto;
 }
 
 .forecast-icon {
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
   width: 70px;
   display: block;
   margin: 0 auto;
