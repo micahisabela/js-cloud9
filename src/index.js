@@ -69,8 +69,6 @@ function showForecast(response) {
 }
 
 function showCity(response) {
-  console.log(response.data);
-
   document.querySelector("#current-city").innerHTML = response.data.name;
 
   document.querySelector("#current-temp").innerHTML = Math.round(
