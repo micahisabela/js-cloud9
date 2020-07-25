@@ -18,21 +18,6 @@ function getDate(date) {
   return `${currentWeekday} ${currentMonth}/${currentDayNumber}/${currentYear}`;
 }
 
-// function formatDate(timestamp) {
-//   let date = new Date(timestamp);
-
-//   let daysOfWeek = ["Sun.", "Mon.", "Tue.", "Wed.", "Thu.", "Fri.", "Sat."];
-//   let currentWeekday = daysOfWeek[date.getDay()];
-
-//   let time = timestamp.toLocaleString("en-US", {
-//     hour: "numeric",
-//     hour12: true,
-//     minute: "numeric",
-//   });
-
-//   return `${time}, ${currentWeekday}`;
-// } // commenting this out because openweatherapi is not rendering the time correctly
-
 // search engine
 function getCity(event) {
   event.preventDefault();
@@ -103,16 +88,20 @@ function showCity(response) {
     response.data.wind.speed
   );
 
-  // document.querySelector("#current-date").innerHTML = formatDate(
-  //   response.data.dt * 1000
-  // ); // commenting this out for now because openweatherapi is not rendering the time correctly
-
   let iconElement = document.querySelector("#weather-icon");
   iconElement.setAttribute(
     "src",
     `images/${response.data.weather[0].icon}.svg`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
+
+  document.querySelector("#sunrise-time").innerHTML = getTime(
+    new Date(response.data.sys.sunrise * 1000)
+  );
+
+  document.querySelector("#sunset-time").innerHTML = getTime(
+    new Date(response.data.sys.sunset * 1000)
+  );
 }
 
 // use the Current Location button:
