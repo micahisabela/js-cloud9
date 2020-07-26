@@ -53,7 +53,7 @@ function showForecast(response) {
 
     let forecastTime = getTime(new Date(forecast.dt * 1000));
     let farenheitTemperature = Math.round(forecast.main.temp_max);
-    let celsiusTemperature = Math.round(farenheitTemperature - (32 * 5) / 9);
+    let celsiusTemperature = Math.round(((farenheitTemperature - 32) * 5) / 9);
     let iconCode = forecast.weather[0].icon;
     let forecastDescription = forecast.weather[0].description;
 
@@ -128,7 +128,9 @@ function convertToCelsius(event) {
   event.preventDefault();
 
   let celsiusTemperature = document.querySelector("#current-temp");
-  celsiusTemperature.innerHTML = Math.round(currentTemperature - (32 * 5) / 9);
+  celsiusTemperature.innerHTML = Math.round(
+    (currentTemperature - 32) * (5 / 9)
+  );
   celsiusLink.classList.add("active");
   farenheitLink.classList.remove("active");
 }
