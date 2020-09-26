@@ -7,7 +7,7 @@
 
 I created this web application as my final project for the SheCodes Workshops Front End Development course. This weather application can be used for checking the current weather information (temperature, humidity, and wind speed) and 3-hour forecast in a searched city or current location in either metric or imperial units.
 
-**Feel free to demo it [here](https://elated-minsky-3dd5c7.netlify.app)**
+**Feel free to demo it [here](https://elated-minsky-3dd5c7.netlify.app)**.
 
 ## Technologies & Frameworks used
 
